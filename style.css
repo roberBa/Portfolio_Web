@@ -161,6 +161,15 @@ body{
     -webkit-text-stroke: .7px var(--primary);
     stroke: .7px var(--primary);
 }
+.title-animation .title-job span::before{
+    content: "";
+    width: 0%;
+    color: var(--primary);
+    height: 100%;
+}
+.title-animation .title-job span::before:hover{
+    width: 100%;
+}
 .header-content p{
     font-size: 1.8rem;
     font-family: var(--fuente1);
