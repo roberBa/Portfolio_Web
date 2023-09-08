@@ -165,7 +165,7 @@ body{
     width: fit-content;
 }
 .title-animation .title-job{
-    width: fit-content;
+    width: max-content;
     font-size: 3.5rem;
     font-weight: 700;
     color: transparent;
@@ -315,6 +315,8 @@ body{
     }
     .title-animation .title-job{
         font-size: 3.2rem;
+        animation: textAnimatedMd 6s linear infinite;
+        animation-delay: 2s;
     }
 }
 @media screen and ( max-width: 576px ) {
@@ -334,7 +336,10 @@ body{
         font-size: 3rem;
     }
     .title-animation .title-job{
+        width: fit-content;
         font-size: 2.8rem;
+        animation: textAnimatedSm 6s linear infinite;
+        animation-delay: 2s;
     }
     .header-content p{
         font-size: 1.6rem;
@@ -346,6 +351,24 @@ body{
     }
     .my-photo{
         transform: translate(-60%, -52%);
+    }
+}
+@media screen and ( max-width: 425px ) {
+    .title-animation .title-job{
+        animation: textAnimatedMbLg 6s linear infinite;
+        animation-delay: 2s;
+    }
+}
+@media screen and ( max-width: 394px ) {
+    .title-animation .title-job{
+        animation: textAnimatedMbMd 6s linear infinite;
+        animation-delay: 2s;
+    }
+}
+@media screen and ( max-width: 376px ) {
+    .title-animation .title-job{
+        animation: textAnimatedMbSm 6s linear infinite;
+        animation-delay: 2s;
     }
 }
 
@@ -374,14 +397,22 @@ body{
     height: 20rem;
     border: solid var(--secondary) .4rem;
     border-radius: 50%;
-    padding: 1rem;
+    padding: .8rem;
     margin-bottom: 3rem;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.profile img{
+.contene-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.contene-img img{
     position: relative;
     width: 220%;
     height: 220%;
@@ -391,7 +422,7 @@ body{
     transition: .5s;
     z-index: 3;
 }
-.profile img:hover{
+.contene-img img:hover{
     transform: scale(1.2);
 }
 .img-background{
@@ -405,13 +436,27 @@ body{
     z-index: 1;
     background-color: var(--blanco);
 }
+.profile .circle-spin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    border-top: solid transparent .4rem;
+    border-right: solid var(--thirdy) .4rem;
+    border-bottom: solid transparent .4rem;
+    border-left: solid var(--thirdy) .4rem;
+    animation: spinner 8s linear infinite;
+}
 .subtitle{
     color: var(--blanco);
     font: 600 2.6rem var(--fuente1);
     margin-bottom: 1rem;
 }
 .subtitle span{
-    color: var(--secondary);
+    color: var(--thirdy);
 }
 .about p{
     width: 80%;
@@ -493,29 +538,51 @@ body{
     padding: 0 0 0 3rem;
 }
 .timeline-item{
+    position: relative;
     width: 100%;
     border: solid var(--primary) .3rem;
     border-radius: .6rem;
     padding: 2rem;
 }
+.timeline-item::before{
+    content: '';
+    position: absolute;
+    top: -.3rem;
+    left: -4.37rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
 .timeline-date{
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 2rem;
+    color: var(--primary);
+}
+.timeline-date i{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .8rem;
+    border-radius: .4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .timeline-title{
     font: 600 2rem var(--fuente1);
     margin-bottom: .8rem;
 }
 .timeline-title span{
-    color: var(--secondary);
+    color: var(--thirdy);
+    font-size: 1.8rem;
 }
 .timeline-subtitle{
     font: 500 1.8rem var(--fuente1);
     margin-bottom: 2rem;
 }
 .timeline-item ul ::marker{
-    color: var(--highlights);
+    color: var(--thirdy);
 }
 .timeline-item li{
     font-size: 1.6rem;
@@ -548,10 +615,17 @@ body{
     .timeline-item{
         padding: 1.8rem;
     }
+    .timeline-item::before{
+        left: -3.37rem;
+    }
     .timeline-date{
         font-size: 1.5rem;
         letter-spacing: .08rem;
         margin-bottom: 1.8rem;
+    }
+    .timeline-date i{
+        height: 1.3rem;
+        width: 1.3rem;
     }
     .timeline-subtitle{
         margin-bottom: 1.8rem;
@@ -565,8 +639,6 @@ body{
         padding: 8rem 4rem 4rem 4rem !important;
     }
     .timeline-date{
-        font-size: 1.5rem;
-        letter-spacing: .08rem;
         margin-bottom: 1.5rem;
     }
     .timeline-title{
@@ -593,8 +665,13 @@ body{
     margin-bottom: 7rem;
 }
 .label{
-    font: 600 2rem var(--fuente1);
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.label label{
+    font: 600 2rem var(--fuente1);
     display: flex;
     align-items: center;
 }
@@ -632,7 +709,7 @@ body{
         gap: 1.8rem;
         margin-bottom: 1.8rem;
     }
-    .label{
+    .label label{
         font-size: 1.8rem;
     }
     .label img{
@@ -690,6 +767,7 @@ body{
 .card-header .logo img{
     width: 100%;
     height: 100%;
+    z-index: 10;
 }
 .btn-modal{
     position: absolute;
@@ -704,6 +782,7 @@ body{
     color: var(--primary);
     opacity: .7;
     transition: .3s;
+    z-index: 100;
 }
 .btn-modal:hover{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
@@ -1003,7 +1082,9 @@ textarea{
 
 
 /***** Keyframes *****/
-@keyframes textAnimated {
+
+/* Header text animation */
+@keyframes textAnimated {       /* For mid to large screens */
     0%,10%,100%{
         background-position: -47.5rem 0;
     }
@@ -1011,6 +1092,47 @@ textarea{
         background-position: 0 0;
     }
 }
+@keyframes textAnimatedMd {     /* For small to mid screens */
+    0%,10%,100%{
+        background-position: -43.7rem 0;
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+@keyframes textAnimatedSm {     /* For small screens */
+    0%,10%,100%{
+        background-position: -36rem 0;
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+@keyframes textAnimatedMbLg {     /* For large mobile screens */
+    0%,10%,100%{
+        background-position: -30rem 0;
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+@keyframes textAnimatedMbMd {     /* For mid mobile screens */
+    0%,10%,100%{
+        background-position: -28rem 0;
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+@keyframes textAnimatedMbSm {     /* For sm mobile screens */
+    0%,10%,100%{
+        background-position: -27rem 0;
+    }
+    65%,85%{
+        background-position: 0 0;
+    }
+}
+/* Header cursor animation */
 @keyframes cursorAnimated {
     0%,10%,100%{
         width: 0%;
@@ -1021,5 +1143,22 @@ textarea{
     }
     75%,81%{
         opacity: 0;
+    }
+}
+
+/* Profile spinner animation */
+@keyframes spinner {
+    0%, 50%{
+        border-right: solid var(--thirdy) .4rem;
+        border-left: solid var(--thirdy) .4rem;
+    }
+    25%, 75%{
+        border-right: solid transparent .4rem;
+        border-left: solid transparent .4rem;
+    }
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+        border-right: solid var(--thirdy) .4rem;
+        border-left: solid var(--thirdy) .4rem;
     }
 }
