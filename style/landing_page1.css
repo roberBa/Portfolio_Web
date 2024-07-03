@@ -30,7 +30,7 @@ html{
 body{
 	font-size: 1.6rem;
 	line-height: 1.2;
-    background: URL(/resources/Sprinkle.svg);
+    background: URL(../resources/Sprinkle.svg);
 }
 
 /***********************************************/
