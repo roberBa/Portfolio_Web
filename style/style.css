@@ -377,7 +377,7 @@ body{
 /***** About *****/
 .about{
     height: 100vh;
-    padding: 10rem 10rem !important;
+    padding: 10rem 10rem 8rem !important;
     background-color: var(--background-secondary);
 }
 .section-title{
@@ -792,7 +792,7 @@ body{
     font-weight: 700;
 }
 .card-body{
-    height: 11.5rem;
+    height: 13rem;
     color: var(--blanco) !important;
     background-color: #32373E !important;
 }
@@ -801,7 +801,7 @@ body{
     letter-spacing: .1rem;
 }
 .card-subtitle{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 500;
     letter-spacing: .1rem;
 }
@@ -843,6 +843,7 @@ body{
     border: none !important;
     height: 100% !important;
     min-height: 100% !important;
+    background-color: transparent !important;
 }
 .carousel-inner{
     height: 100% !important;
@@ -852,6 +853,13 @@ body{
     height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
+}
+.carousel-item-next, .carousel-item-prev, .carousel-item.active{
+    display: grid !important;
+    place-items: center;
+}
+#project-slides2 .carousel-item img{
+    width: 25%;
 }
 .carousel-control-prev{
     left: -10rem !important;

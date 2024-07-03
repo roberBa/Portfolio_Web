@@ -58,9 +58,9 @@ $('.card-header').hover(
         let id = target.attr('data-id');
         $('.btn-modal').each(function(){
             if( id == $(this).attr('data-target') ){
-                $('.btn-modal').css('transform', 'translate(-50%, 70%)');
-                $('.btn-modal').click(function(){
-                    $('.btn-modal').css('transform', 'translate(-50%, 250%)');
+                $(this).css('transform', 'translate(-50%, 70%)');
+                $(this).click(function(){
+                    $(this).css('transform', 'translate(-50%, 250%)');
                     let modal = $(this).attr('data-target');
                     $('#'+modal).click();
                 });
