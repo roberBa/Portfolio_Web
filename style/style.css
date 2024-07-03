@@ -912,6 +912,9 @@ body{
         top: 4rem !important;
         right: 4rem !important;
     }
+    #project-slides2 .carousel-item img{
+        width: 40%;
+    }
     .carousel-control-prev, 
     .carousel-control-next{
         display: none !important;
@@ -940,6 +943,9 @@ body{
     .card-header{
         height: 15rem;
     }
+    #project-slides2 .carousel-item img{
+        width: 60%;
+    }
 }
 @media screen and ( max-width: 410px ) {
     .projects .section-title{
@@ -950,6 +956,9 @@ body{
     }
     .card-header{
         height: 14rem;
+    }
+    #project-slides2 .carousel-item img{
+        width: 80%;
     }
 }
 
